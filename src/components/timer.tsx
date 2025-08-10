@@ -451,7 +451,9 @@ export const Timer = () => {
     <div className="flex flex-col text-foreground w-full max-w-7xl mx-auto p-4">
       {/* Main Timer Display - Large centered with current time */}
       <div className="flex flex-col items-center justify-center mb-6 border-b pb-6">
-        <SharedTimerDisplay size="large" className="mb-6" />
+        <div className="w-full max-w-4xl">
+          <SharedTimerDisplay size="large" className="mb-6" />
+        </div>
         
         {/* Set Timer Button */}
         <Button 
@@ -489,7 +491,7 @@ export const Timer = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="flex flex-col items-center justify-center flex-grow">
-                    <div className="text-6xl font-mono mb-4">
+                    <div className="text-4xl md:text-6xl font-mono mb-4">
                       {isFinished ? "Finished!" : formatTime(timer.remainingTime)}
                     </div>
                     <Progress 

@@ -92,10 +92,8 @@ export const SharedTimerDisplay = ({
 
   // For analog and text modes, use the clock components
   if (settings.mode === "analog") {
-    const scaledSize = size === "small" ? 150 : size === "medium" ? 250 : 300;
-    const finalSize = scaledSize * (settings.size / 100);
     return (
-      <div className={`flex justify-center ${className}`} style={{ transform: `scale(${Math.min(finalSize / 300, 2)})` }}>
+      <div className={`flex justify-center ${className}`}>
         <AnalogClock time={displayTime} />
       </div>
     );
@@ -109,17 +107,10 @@ export const SharedTimerDisplay = ({
     );
   }
 
-  // Default to digital mode - but use the existing SharedTimerDisplay logic for digital
+  // Default to digital mode - reuse DigitalClock for consistent styling across pages
   return (
-    <div 
-      className={`${getFontFamily()} font-bold tracking-wider transition-all duration-500 ${className}`}
-      style={{
-        color: settings.color,
-        lineHeight: 1,
-        ...getResponsiveFontSize(),
-      }}
-    >
-      {formatTime()}
+    <div className={`flex justify-center ${className}`}>
+      <DigitalClock time={displayTime} />
     </div>
   );
 };

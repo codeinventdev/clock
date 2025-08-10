@@ -39,7 +39,7 @@ export const SettingsPanel = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-4 top-4 rounded-full text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
+          className="fixed right-4 top-4 z-50 rounded-full text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
           aria-label="Open settings"
         >
           <Cog className="h-6 w-6" />

@@ -17,12 +17,14 @@ export default function WorldClock() {
 
     return (
       <MainContent>
-        <div className="flex flex-col items-center justify-center text-foreground w-full max-w-7xl mx-auto p-4">
+        <div className="flex flex-col items-center justify-center text-foreground w-full max-w-7xl mx-auto p-4 pb-4">
           <div className="w-full text-center py-8">
-            <h1 className="text-4xl font-bold mb-2">World Clock</h1>
-            <p className="text-lg text-muted-foreground mb-8">Current Local Time</p>
-            <SharedTimerDisplay size="large" className="mb-8" />
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2">World Clock</h1>
+            <p className="text-base md:text-lg text-muted-foreground mb-8">Current Local Time</p>
+            <div className="w-full max-w-4xl mx-auto mb-8">
+              <SharedTimerDisplay size="large" className="" />
+            </div>
+            <p className="text-base md:text-lg text-muted-foreground">
               {new Date().toLocaleDateString('en-US', {
                 weekday: 'long',
                 year: 'numeric',
@@ -32,8 +34,10 @@ export default function WorldClock() {
             </p>
           </div>
         </div>
-        <PopularTimezones />
-        <AdPlaceholder slot={getSlotForPlacement('world')} className="max-w-7xl mx-auto my-8" />
+        <div className="mb-8">
+          <PopularTimezones />
+          <AdPlaceholder slot={getSlotForPlacement('world')} className="max-w-7xl mx-auto my-8" />
+        </div>
       </MainContent>
     );
 }

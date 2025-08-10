@@ -57,9 +57,11 @@ export const MainContent = ({children}: {children?: React.ReactNode}) => {
     switch (activeTab) {
         case 'time':
             return (
-                <div className="flex flex-col items-center justify-center text-center w-full">
-                    <h1 className="text-2xl text-muted-foreground mb-4">Time Now</h1>
-                    <ClockDisplay />
+                <div className="flex flex-col items-center justify-center text-center w-full px-4">
+                    <h1 className="text-xl md:text-2xl text-muted-foreground mb-4">Time Now</h1>
+                    <div className="w-full max-w-4xl">
+                        <ClockDisplay />
+                    </div>
                     <DateDisplay />
                     <QuoteDisplay />
                 </div>
@@ -75,9 +77,11 @@ export const MainContent = ({children}: {children?: React.ReactNode}) => {
 
         default:
             return (
-                 <div className="flex flex-col items-center justify-center text-center w-full">
-                    <h1 className="text-2xl text-muted-foreground mb-4">Time Now 123</h1>
-                    <ClockDisplay />
+                 <div className="flex flex-col items-center justify-center text-center w-full px-4">
+                    <h1 className="text-xl md:text-2xl text-muted-foreground mb-4">Time Now</h1>
+                    <div className="w-full max-w-4xl">
+                        <ClockDisplay />
+                    </div>
                     <DateDisplay />
                     <QuoteDisplay />
                 </div>
@@ -88,12 +92,12 @@ export const MainContent = ({children}: {children?: React.ReactNode}) => {
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center bg-background p-4 md:p-8">
       <Navigation />
-      <main className="flex-grow flex flex-col items-center justify-center overflow-hidden w-full pt-20">
+      <main className="flex-grow flex flex-col items-center justify-center overflow-hidden w-full pt-20 pb-8">
         {renderContent()}
       </main>
       
       {(getActiveTabFromPath() === 'time' || getActiveTabFromPath() === 'world-clock') && (
-        <footer className="w-full max-w-7xl mx-auto mt-12">
+        <footer className="w-full max-w-7xl mx-auto mt-12 mb-16 md:mb-0">
           <AdPlaceholder slot={getSlotForPlacement('home')} />
           {getActiveTabFromPath() === 'time' && <PopularTimezones /> }
           <PageFooter />

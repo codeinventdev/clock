@@ -314,7 +314,7 @@ export const HolidayTimerPage = ({ holidaySlug }: HolidayTimerPageProps) => {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div className="flex flex-col">
-                <div className="text-4xl md:text-6xl font-mono font-bold text-primary">
+                <div className="font-mono font-bold text-primary" style={{ fontSize: `clamp(2rem, 2rem + 2vw, 3.5rem)` }}>
                   {timeRemaining.days}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground mt-2">
@@ -322,7 +322,7 @@ export const HolidayTimerPage = ({ holidaySlug }: HolidayTimerPageProps) => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="text-4xl md:text-6xl font-mono font-bold text-primary">
+                <div className="font-mono font-bold text-primary" style={{ fontSize: `clamp(2rem, 2rem + 2vw, 3.5rem)` }}>
                   {timeRemaining.hours.toString().padStart(2, '0')}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground mt-2">
@@ -330,7 +330,7 @@ export const HolidayTimerPage = ({ holidaySlug }: HolidayTimerPageProps) => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="text-4xl md:text-6xl font-mono font-bold text-primary">
+                <div className="font-mono font-bold text-primary" style={{ fontSize: `clamp(2rem, 2rem + 2vw, 3.5rem)` }}>
                   {timeRemaining.minutes.toString().padStart(2, '0')}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground mt-2">
@@ -338,7 +338,7 @@ export const HolidayTimerPage = ({ holidaySlug }: HolidayTimerPageProps) => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="text-4xl md:text-6xl font-mono font-bold text-primary">
+                <div className="font-mono font-bold text-primary" style={{ fontSize: `clamp(2rem, 2rem + 2vw, 3.5rem)` }}>
                   {timeRemaining.seconds.toString().padStart(2, '0')}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground mt-2">

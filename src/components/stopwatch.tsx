@@ -39,11 +39,10 @@ const StopwatchDisplay = ({ time }: StopwatchDisplayProps) => {
     // Convert milliseconds to a Date object for analog/text display
     const displayTime = new Date(time);
     
-    // For analog mode - scale appropriately for stopwatch
+    // For analog mode - let AnalogClock handle its own responsive sizing
     if (settings.mode === "analog") {
-        const scaledSize = 300 * (settings.size / 100);
         return (
-            <div className="flex justify-center" style={{ transform: `scale(${Math.min(scaledSize / 300, 2)})` }}>
+            <div className="flex justify-center">
                 <AnalogClock time={displayTime} />
             </div>
         );
@@ -76,16 +75,23 @@ const StopwatchDisplay = ({ time }: StopwatchDisplayProps) => {
         }
     };
 
-    const fontSize = `${(settings.size / 100) * 8}rem`;
+    // Responsive font sizing for stopwatch
+    const getResponsiveFontSize = () => {
+        const baseSize = 3 * (settings.size / 100); // 3rem on mobile
+        const maxSize = 8 * (settings.size / 100);  // 8rem on desktop
+        return {
+            fontSize: `clamp(${baseSize}rem, ${baseSize}rem + 4vw, ${maxSize}rem)`,
+        };
+    };
 
     return (
         <p 
             className={cn("font-bold tracking-tighter transition-all duration-300", getFontFamily())}
             style={{
-                fontSize,
                 color: settings.color,
                 fontVariantNumeric: 'tabular-nums',
                 lineHeight: 1,
+                ...getResponsiveFontSize(),
             }}
         >
             {formatTime(time)}

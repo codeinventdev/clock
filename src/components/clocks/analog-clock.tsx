@@ -17,14 +17,21 @@ export const AnalogClock: FC<AnalogClockProps> = ({ time }) => {
   const minuteDeg = (minutes / 60) * 360 + (seconds / 60) * 6;
   const hourDeg = (hours / 12) * 360 + (minutes / 60) * 30;
 
-  const clockSize = 300 * (settings.size / 100);
+  // Responsive sizing using CSS custom properties and clamp
+  const getResponsiveSize = () => {
+    const baseSize = 200 * (settings.size / 100); // Base size for mobile
+    const maxSize = 400 * (settings.size / 100);  // Max size for desktop
+    return {
+      width: `clamp(${baseSize}px, ${baseSize}px + 10vw, ${maxSize}px)`,
+      height: `clamp(${baseSize}px, ${baseSize}px + 10vw, ${maxSize}px)`,
+    };
+  };
 
   return (
     <div
-      className="relative transition-all duration-300"
+      className="relative transition-all duration-300 mx-auto"
       style={{
-        width: `${clockSize}px`,
-        height: `${clockSize}px`,
+        ...getResponsiveSize(),
         color: settings.color,
       }}
     >
