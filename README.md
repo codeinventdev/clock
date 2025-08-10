@@ -1,78 +1,163 @@
-# wklock - Online Clock & Timer
+# �� WKClock - Online Clock, Timer & Stopwatch
 
-A comprehensive, free online clock application featuring multiple clock displays, alarm functionality, countdown timers, stopwatch with laps, and world clock support.
+A modern, feature-rich web application providing clock, timer, stopwatch, and alarm functionality with Google AdSense integration.
 
-## Features
+## ✨ Features
 
-- **Multiple Clock Displays**: Digital, analog, and text-based clock options
-- **Alarm Clock**: Set multiple alarms with custom sounds and repeat options
-- **Countdown Timer**: Customizable timers for any duration
-- **Stopwatch**: Precision stopwatch with lap timing functionality
-- **World Clock**: Current time in cities worldwide
-- **Holiday Countdowns**: Built-in timers for major holidays
-- **Customizable**: Font, color, and size settings
-- **Responsive Design**: Works on all devices
-- **PWA Support**: Install as a web app
+- **Multiple Clock Modes**: Digital, Analog, and Text displays
+- **Customizable**: Colors, sizes, fonts, and show/hide seconds
+- **World Clock**: Support for multiple timezones
+- **Timer**: Countdown timer with holiday-specific countdowns
+- **Stopwatch**: Precision stopwatch with lap functionality
+- **Alarm Clock**: Sound alerts with custom times
+- **Responsive Design**: Works on desktop and mobile
+- **Dark Mode**: Beautiful dark theme
+- **PWA Ready**: Progressive Web App capabilities
+- **SEO Optimized**: Comprehensive meta tags and sitemap
+- **AdSense Integration**: Monetization with Google AdSense
 
-## SEO Features
+## 🛠️ Tech Stack
 
-- **Meta Tags**: Comprehensive meta descriptions and keywords
-- **Open Graph**: Social media sharing optimization
-- **Twitter Cards**: Enhanced Twitter sharing
-- **Structured Data**: JSON-LD schema markup
-- **Sitemap**: Dynamic XML sitemap generation
-- **Robots.txt**: Search engine crawling instructions
-- **Canonical URLs**: Prevents duplicate content issues
-
-## Pages
-
-- `/` - Main clock display with settings
-- `/alarm` - Alarm clock functionality
-- `/timer` - Countdown timer
-- `/stopwatch` - Stopwatch with laps
-- `/world-clock` - World time zones
-- `/world-clock/[city]` - Specific city time
-- `/timer/[holiday]` - Holiday countdown timers
-
-## Technology Stack
-
-- **Framework**: Next.js 14 with App Router
+- **Framework**: Next.js 15.3.3
+- **Frontend**: React 19, TypeScript
 - **Styling**: Tailwind CSS
-- **State Management**: React Context API
 - **Icons**: Lucide React
-- **Deployment**: Firebase Hosting
+- **State Management**: React Context API
+- **Deployment**: PM2, Nginx
 
-## Getting Started
+## 🚀 Quick Start
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run development server: `npm run dev`
-4. Build for production: `npm run build`
+### Development
 
-## Google AdSense
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/wklock.git
+cd wklock
 
-To enable AdSense, set the client id as an environment variable:
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your AdSense credentials
+
+# Start development server
+npm run dev
+```
+
+### Production Deployment
+
+1. **Setup Environment Variables**
+   ```bash
+   # Create .env.local with your AdSense configuration
+   NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXXXXXX
+   NEXT_PUBLIC_ADSENSE_SLOT_HOME=XXXXXXXXXX
+   NEXT_PUBLIC_ADSENSE_SLOT_WORLD=XXXXXXXXXX
+   NEXT_PUBLIC_ADSENSE_SLOT_ALARM=XXXXXXXXXX
+   NEXT_PUBLIC_ADSENSE_SLOT_TIMER=XXXXXXXXXX
+   NEXT_PUBLIC_ADSENSE_SLOT_STOPWATCH=XXXXXXXXXX
+   NEXT_PUBLIC_ADSENSE_SLOT_HOLIDAY=XXXXXXXXXX
+   ```
+
+2. **Build and Deploy**
+   ```bash
+   # Build the application
+   npm run build
+
+   # Start with PM2 (production)
+   pm2 start npm --name "wklock-frontend" -- start -- -p 3010
+   ```
+
+3. **Automated Deployment**
+   ```bash
+   # Make deployment script executable and run
+   chmod +x deploy.sh
+   ./deploy.sh
+   ```
+
+## 📁 Project Structure
 
 ```
-NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-xxxxxxxxxxxxxxxx
+src/
+├── app/                    # Next.js app directory
+│   ├── [holiday]/[year]/   # Holiday countdown pages
+│   ├── alarm/              # Alarm clock page
+│   ├── stopwatch/          # Stopwatch page
+│   ├── timer/              # Timer pages
+│   └── world-clock/        # World clock pages
+├── components/             # React components
+│   ├── clocks/            # Clock display components
+│   ├── ui/                # UI components (shadcn/ui)
+│   └── ...                # Feature components
+├── context/               # React Context providers
+├── hooks/                 # Custom React hooks
+├── lib/                   # Utility functions
+│   ├── adsense.ts         # AdSense integration
+│   ├── city-timezones.ts  # Timezone data
+│   └── ...                # Other utilities
+public/                    # Static assets
+docs/                      # Documentation
 ```
 
-Use the `AdPlaceholder` component and pass your slot id where ads should render. In development (or if not configured), a visual placeholder appears.
+## 🌐 Live Demo
 
-```tsx
-<AdPlaceholder slot="1234567890" />
-```
+Visit: [https://wklock.com](https://wklock.com)
 
-## SEO Optimization
+## 🔧 Environment Variables
 
-The application includes:
-- Dynamic sitemap generation
-- Meta tags for all pages
-- Open Graph and Twitter Card support
-- Structured data markup
-- PWA manifest for mobile optimization
-- Responsive design for mobile-first indexing
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_ADSENSE_CLIENT` | Google AdSense client ID | Yes |
+| `NEXT_PUBLIC_ADSENSE_SLOT_HOME` | AdSense slot for home page | No |
+| `NEXT_PUBLIC_ADSENSE_SLOT_WORLD` | AdSense slot for world clock | No |
+| `NEXT_PUBLIC_ADSENSE_SLOT_ALARM` | AdSense slot for alarm page | No |
+| `NEXT_PUBLIC_ADSENSE_SLOT_TIMER` | AdSense slot for timer page | No |
+| `NEXT_PUBLIC_ADSENSE_SLOT_STOPWATCH` | AdSense slot for stopwatch | No |
+| `NEXT_PUBLIC_ADSENSE_SLOT_HOLIDAY` | AdSense slot for holiday pages | No |
 
-## License
+## 📱 Pages
 
-MIT License - Free to use and modify
+- **/** - Main clock with customizable display
+- **/world-clock** - World clock with timezone selection
+- **/world-clock/[city]** - Specific city time
+- **/alarm** - Alarm clock functionality
+- **/timer** - Countdown timer
+- **/timer/[holiday]** - Holiday countdown timers
+- **/stopwatch** - Precision stopwatch with laps
+- **/[holiday]/[year]** - Holiday-specific countdown pages
+
+## 🎨 Customization
+
+The application supports extensive customization:
+- **Clock Mode**: Digital, Analog, Text
+- **Colors**: Custom color picker
+- **Size**: Adjustable clock size (50% - 200%)
+- **Font Family**: Multiple font options
+- **Show Seconds**: Toggle seconds display
+- **Themes**: Dark/Light mode support
+
+## 🔄 Deployment Workflow
+
+1. **Make changes locally**
+2. **Commit and push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Your changes"
+   git push origin main
+   ```
+3. **Deploy to VPS**
+   ```bash
+   ./deploy.sh
+   ```
+
+## 📋 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📞 Support
+
+For support, please open an issue on GitHub or contact the development team.
