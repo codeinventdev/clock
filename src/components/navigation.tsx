@@ -36,7 +36,7 @@ export const Navigation = () => {
 
   return (
     <>
-      <header className="absolute top-0 left-0 right-0 p-4 flex items-center w-full max-w-7xl mx-auto z-40">
+      <header className="absolute top-0 left-0 right-0 p-4 flex items-center w-full max-w-7xl mx-auto z-40 bg-background/95 md:bg-transparent backdrop-blur-sm md:backdrop-blur-0 border-b md:border-0">
         {/* Left: Nav Toggle (mobile) + Logo */}
         <div className="flex items-center gap-2">
           {/* Mobile Menu Button - moved to left */}
