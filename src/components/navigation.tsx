@@ -36,47 +36,49 @@ export const Navigation = () => {
 
   return (
     <>
-      <header className="fixed md:absolute top-0 left-0 right-0 p-4 flex items-center w-full max-w-7xl mx-auto z-40 bg-background/95 md:bg-transparent backdrop-blur-sm md:backdrop-blur-0 border-b md:border-0">
-        {/* Left: Nav Toggle (mobile) + Logo */}
-        <div className="flex items-center gap-2">
-          {/* Mobile Menu Button - moved to left */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden h-10 w-10"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
-          <Button variant="ghost" size="icon" className="h-10 w-10 text-primary">
-             <MonitorPlay className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-bold text-foreground">wklock</h1>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-2 rounded-full bg-secondary/50 p-1 absolute left-1/2 transform -translate-x-1/2">
-          {navItems.map((item) => (
-            <Button 
-              asChild 
-              key={item.id} 
-              variant={activeTab === item.id ? "secondary" : "ghost"} 
-              className="rounded-full"
+      <header className="fixed top-0 left-0 right-0 h-20 flex items-center w-full z-40 bg-background/95 backdrop-blur-sm border-b">
+        <div className="w-full max-w-7xl mx-auto px-4 flex items-center relative h-full">
+          {/* Left: Nav Toggle (mobile) + Logo */}
+          <div className="flex items-center gap-2">
+            {/* Mobile Menu Button - moved to left */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden h-10 w-10"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle navigation menu"
             >
-              <Link href={item.href}>
-                <item.icon className="h-4 w-4 mr-2" />
-                {item.label}
-              </Link>
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
-          ))}
-        </nav>
+            <Button variant="ghost" size="icon" className="h-10 w-10 text-primary">
+               <MonitorPlay className="h-6 w-6" />
+            </Button>
+            <h1 className="text-xl font-bold text-foreground">wklock</h1>
+          </div>
 
-        {/* Right side intentionally empty; settings toggle sits at top-right via SettingsPanel */}
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-2 rounded-full bg-secondary/50 p-1 absolute left-1/2 transform -translate-x-1/2">
+            {navItems.map((item) => (
+              <Button 
+                asChild 
+                key={item.id} 
+                variant={activeTab === item.id ? "secondary" : "ghost"} 
+                className="rounded-full"
+              >
+                <Link href={item.href}>
+                  <item.icon className="h-4 w-4 mr-2" />
+                  {item.label}
+                </Link>
+              </Button>
+            ))}
+          </nav>
+
+          {/* Right side intentionally empty; settings toggle sits at top-right via SettingsPanel */}
+        </div>
       </header>
 
       {/* Mobile Navigation Overlay */}

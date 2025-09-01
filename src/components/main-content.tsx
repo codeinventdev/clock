@@ -92,7 +92,7 @@ export const MainContent = ({children}: {children?: React.ReactNode}) => {
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center bg-background p-4 md:p-8">
       <Navigation />
-      <main className="flex-grow flex flex-col items-center justify-center overflow-hidden w-full pt-20 pb-8">
+      <main className="flex-grow flex flex-col items-center justify-center overflow-hidden w-full pt-24 pb-8">
         {renderContent()}
       </main>
       

@@ -29,7 +29,7 @@ export default function AboutPage() {
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center bg-background">
       <Navigation />
-      <main className="flex-grow w-full max-w-6xl mx-auto p-4 md:p-8 pt-28">
+      <main className="flex-grow w-full max-w-6xl mx-auto p-4 md:p-8 pt-32">
         
         {/* Header */}
         <div className="text-center mb-12">
