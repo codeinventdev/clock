@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     title: 'About Online Clocks & Time Management',
     description: 'Discover the fascinating world of timekeeping and learn time management techniques.',
     type: 'article',
+    url: 'https://wklock.com/about',
+  },
+  alternates: {
+    canonical: 'https://wklock.com/about',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

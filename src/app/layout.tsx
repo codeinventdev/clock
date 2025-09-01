@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     siteName: 'wklock',
     images: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/favicon.svg',
+        width: 800,
+        height: 600,
         alt: 'wklock - Online Clock and Timer',
       },
     ],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Online Clock, Timer & Stopwatch | wklock',
     description: 'Free online clock, alarm, timer, and stopwatch with customizable displays and world time support.',
-    images: ['/og-image.png'],
+    images: ['/favicon.svg'],
   },
   robots: {
     index: true,
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
+    google: 'google-site-verification-code-here', // Replace with actual Google Search Console verification code
+    // yandex: 'your-yandex-verification-code',
+    // yahoo: 'your-yahoo-verification-code',
   },
 };
 
@@ -85,6 +85,22 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="wklock" />
         
+        {/* Additional SEO Meta Tags */}
+        <meta name="geo.region" content="US" />
+        <meta name="geo.placename" content="Global" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="revisit-after" content="1 days" />
+        <meta httpEquiv="content-language" content="en-US" />
+        
+        {/* Preconnect for performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Additional PWA meta tags */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="wklock" />
+        
         {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
@@ -92,30 +108,81 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "wklock",
-              "description": "Free online clock, alarm, timer, and stopwatch with customizable displays and world time support.",
+              "name": "wklock - Online Clock & Timer",
+              "alternateName": "wklock",
+              "description": "Free online clock, alarm, timer, and stopwatch with customizable displays and world time support. Perfect for productivity, time management, and daily scheduling.",
               "url": "https://wklock.com",
               "applicationCategory": "UtilityApplication",
               "operatingSystem": "Web Browser",
+              "browserRequirements": "Requires modern web browser with JavaScript enabled",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
-                "priceCurrency": "USD"
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
               },
               "featureList": [
-                "Digital Clock",
-                "Analog Clock", 
-                "Text Clock",
-                "Alarm Clock",
-                "Countdown Timer",
-                "Stopwatch",
-                "World Clock",
-                "Holiday Countdowns"
+                "Customizable Digital Clock",
+                "Analog Clock Display", 
+                "Text Clock Format",
+                "Multiple Alarm Clock",
+                "Countdown Timer with Sound",
+                "Precision Stopwatch with Laps",
+                "World Clock with Time Zones",
+                "Holiday Countdown Timers",
+                "Pomodoro Timer",
+                "Time Management Tools"
               ],
-               "author": {
-                 "@type": "Organization",
-                 "name": "wklock"
-               }
+              "keywords": "online clock, digital clock, timer, stopwatch, alarm, world time, time management, productivity",
+              "author": {
+                "@type": "Organization",
+                "name": "wklock",
+                "url": "https://wklock.com"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "wklock",
+                "url": "https://wklock.com"
+              },
+              "datePublished": "2025-01-01",
+              "dateModified": new Date().toISOString().split('T')[0],
+              "inLanguage": "en-US",
+              "isAccessibleForFree": true,
+              "usageInfo": "https://wklock.com/about",
+              "mainEntity": {
+                "@type": "SoftwareApplication",
+                "name": "wklock Clock Tools",
+                "applicationCategory": "Productivity",
+                "operatingSystem": "Web-based"
+              }
+            })
+          }}
+        />
+        
+        {/* Additional Structured Data for Time Tools */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "wklock",
+              "url": "https://wklock.com",
+              "logo": "https://wklock.com/favicon.svg",
+              "sameAs": [],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "availableLanguage": "English"
+              },
+              "knowsAbout": [
+                "Time Management",
+                "Productivity Tools",
+                "Online Clocks",
+                "Timer Applications",
+                "Time Zone Conversion",
+                "Pomodoro Technique"
+              ]
             })
           }}
         />

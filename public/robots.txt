@@ -9,9 +9,16 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 
-# Allow all other content
+# Allow all content pages
+Allow: /
 Allow: /alarm
 Allow: /timer
 Allow: /stopwatch
 Allow: /world-clock
+Allow: /about
+Allow: /articles
+Allow: /faq
 Allow: /holidays
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1

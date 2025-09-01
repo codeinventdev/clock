@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     title: 'Frequently Asked Questions - WKClock',
     description: 'Find answers to common questions about using our online timing tools.',
     type: 'website',
+    url: 'https://wklock.com/faq',
+  },
+  alternates: {
+    canonical: 'https://wklock.com/faq',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

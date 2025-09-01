@@ -15,6 +15,14 @@ export const metadata: Metadata = {
     title: 'Time Management Articles & Productivity Tips',
     description: 'Expert insights and practical strategies to help you master time and boost productivity.',
     type: 'website',
+    url: 'https://wklock.com/articles',
+  },
+  alternates: {
+    canonical: 'https://wklock.com/articles',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

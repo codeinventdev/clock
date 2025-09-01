@@ -41,15 +41,14 @@ ssh -o StrictHostKeyChecking=no "$VPS_USER@$VPS_HOST" bash -lc "'
   git config --global init.defaultBranch main || true
 
   if [ ! -d .git ]; then
-    echo "🆕 Initializing git repo and linking origin"
-    git init
-    git remote add origin "$REPO_URL" || git remote set-url origin "$REPO_URL"
-    git fetch origin main
-    git checkout -B main
-    git reset --hard origin/main
+    echo "🆕 Cloning repository"
+    cd ..
+    rm -rf wklock
+    git clone "$REPO_URL" wklock
+    cd wklock
   else
     echo "📥 Fetching latest and resetting to origin/main"
-    git remote add origin "$REPO_URL" 2>/dev/null || git remote set-url origin "$REPO_URL"
+    git remote set-url origin "$REPO_URL"
     git fetch origin main
     git checkout -B main || git checkout main
     git reset --hard origin/main
